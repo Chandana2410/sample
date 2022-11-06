@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=bazooka&family=Dancing+Script:wght@700&display=swap');
-
+/*
+================
+ global styles
+================
+*/
 * {
   margin: 0;
   padding: 0;
@@ -8,12 +12,17 @@
 body{
   background-color:wheat;
 }
-/*  global styles*/
 h1,h2,h3,h4{
   letter-spacing: 7px;
   text-decoration: none;
 }
-/* smaller screen */
+
+/*
+================
+ smaller screen 
+================
+*/
+
 h1{
   font-size: 4rem;
 }
@@ -29,8 +38,11 @@ h4{
 .fa-heart{
   font-size: 4rem;
 }
-
-/* bigger screen */
+/*
+================
+ bigger screen 
+================
+*/
 @media screen and (min-width:1200px){
   h1{
   font-size: 8rem;
@@ -48,10 +60,11 @@ h4{
   font-size: 8rem;
 }
 }
-/* 
-@@@@@@@@@@@@@@@@@@@
-       header
-@@@@@@@@@@@@@@@@@@@
+
+/*
+================
+ header 
+================
 */
 .img{
   height: 100%;
@@ -96,11 +109,7 @@ h4{
     text-align: center;
     margin: auto;
 }
-/* 
-@@@@@@@@@@@@@@@@@@@
-  end of header
-@@@@@@@@@@@@@@@@@@@
-*/
+
 @keyframes slideFromRight{
   0%{
     /* moves 100px to right */
@@ -131,54 +140,31 @@ h4{
     transform: scale(1);
   }
 }
+
+/*
+================
+ end of header
+================
+*/
+/*
+================
+ content-divider 
+================
+*/
 .content-divider{
     height: 0.5rem;
     background: linear-gradient(to right,#e01616,
                     #ff6b08, #eedd44, #ee0909, #ff6b08);
 }
-/* 
-@@@@@@@@@@@@@@@@@@@
-      section
-@@@@@@@@@@@@@@@@@@@
+/*
+=======================
+ end of content-divider 
+=======================
 */
-/* .section{
-  margin: 5rem;
-  padding: 2rem;
-}
-.img-container{
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
-}
-.img-container::before{
-  content: "";
-  position: absolute;DD
-}
-.section{
- display: flex;
- justify-content: space-between;
- align-self: center;
-}
-.section-info{
-  padding: 2rem;
-}
-@media screen and (min-width: 1200px){
-  .section-info{
-    
-  }
-} */
-
-
-/* 
-@@@@@@@@@@@@@@@@@@@
-  end of section
-@@@@@@@@@@@@@@@@@@@
-*/
-
-/* 
-@@@@@@@@@@@@@@@@@@@
-      cards
-@@@@@@@@@@@@@@@@@@@
+/*
+================
+      cards 
+================
 */
 .title h1{
   text-align: center;
@@ -237,8 +223,288 @@ h4{
     grid-template-columns: repeat(3, 1fr);
   }
 }
-/* 
-@@@@@@@@@@@@@@@@@@@
-    end of cards
-@@@@@@@@@@@@@@@@@@@
+/*
+================
+  end of cards 
+================
 */
+
+/*
+================
+  typing 
+================
+*/
+.type{
+    display: grid;
+    place-items: center;
+}
+.typing{
+  animation: typing 2s steps(49), blink .5s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  width:49ch;
+  color:#0c8db4;
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 17px;
+}
+/* bigger screen */
+
+@media screen and (min-width:700px){
+  .typing{
+    font-size: 24px;
+  }
+}
+@media screen and (min-width:1100px){
+  .typing{
+    font-size: 2rem;
+  }
+}
+@keyframes typing {
+  0%{
+    width: 0ch;
+  }
+  100%{
+    width: 49ch;
+  }
+}
+@keyframes blink {
+  50%{
+    border-color: transparent;
+  }
+}
+/*
+================
+ end of typing 
+================
+*/
+/*
+================
+ flip-card 
+================
+*/
+.flip-card{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+}
+.flip-card-inner{
+display: grid;
+grid-template-columns: repeat(3,1fr);
+grid-gap: 3rem;
+margin-left: 5rem;
+}
+.flip-card-front{
+  padding: 1rem;
+}
+.flip-card-front1{
+  border-radius: 2rem;
+}
+.flip-card-front3, .flip-card-front2{
+  width: 285px;
+  height: 335px;
+  border-radius: 2rem;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 285px;
+  height: 335px;
+  /* display: grid;
+  grid-gap: 2rem; */
+  margin: 4rem;
+   /* border: 1px solid #f1f1f1;  */
+   perspective: 1000px; 
+}
+
+.flip-card-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  /* box-shadow:rgba(180, 56, 56, 0.2); */
+}
+
+.flip-card:hover .flip-card-inner{
+  transform: rotateY(180deg);
+  /* box-shadow:rgba(104, 102, 102, 0.2); */
+}
+
+.flip-card-front, .flip-card-back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* .flip-card-front {
+  color: black;
+} */
+
+.flip-card-back {
+  background-color: #b1650e;
+  border-radius: 2rem;
+  color: rgb(34, 231, 182);
+  transform: rotateY(180deg);
+}  
+/*
+=================
+ end of flip-card 
+=================
+*/
+/*
+=================
+ box
+=================
+*/
+.list{
+  background: rgb(206, 189, 159);
+}
+.list-head{
+  margin:1rem;
+  font-size: 40px;
+  letter-spacing: 1px;
+  color:#296e48;
+  text-transform: capitalize;
+}
+.border{
+  margin: 1rem;
+  width: 10rem;
+  height: 3px;
+  background:#fd6005;
+}
+@media screen and (min-width:200px){
+  .border{
+  width: 33rem;
+  height: 3px;
+  background:#fd6005;
+  }
+}
+@media screen and (min-width:1200px){
+  .border{
+  width: 44rem;
+  height: 3px;
+  background:#fd6005;
+  }
+}
+.list-img{
+  /* float: center; */
+  margin-right: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  border: 2px solid black;
+  border-radius: 100px;
+  width: 300px;
+  height: 450px;
+  /* animation: bounce 2s ease infinite; */
+}
+@media screen and (min-width:1200px){
+  .list-img{
+    float: right;
+    width: 300px;
+  height: 450px;
+  margin-bottom: 5rem;
+
+  }
+}
+.list-img:hover{
+  transform: scale(0.85);
+  overflow: hidden;
+
+}
+@keyframes bounce{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(0.75);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+.list-heading{
+  margin-left: 2rem;
+  padding: 2rem;
+  padding-left: 2rem;
+  font-size: 30px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+@media screen and (min-width:1200px){
+  .list-heading{
+    padding-left: 15rem;
+  }
+}
+ul.unordered-list{
+  margin-left: 1rem;
+  margin-right: 2rem;
+  padding-right: 1rem;
+  font-size: 20px;
+  list-style-position: inside;
+}
+
+
+/* final */
+.h1{
+  margin:2rem;
+  margin-top:5rem;
+  letter-spacing: 2px;
+  color:#ff6b08;
+  font-size: 34px;
+  text-align: center;
+  text-transform: capitalize;
+}
+.h2{
+  margin:3rem;
+  letter-spacing: 2px;
+  color:#0c8db4;
+  text-align: center;
+  font-size: 34px;
+  text-transform: capitalize;
+}
+/* end of final */
+/* btn */
+.aboutbtn{
+  text-align: center;
+  padding: 10rem;
+  padding-left:40rem;
+}
+.finalimg{
+  width: 300px;
+  margin-left: 6rem;
+  /* border: 2px solid red; */
+}
+@media screen and (min-width:1200px){
+  .aboutbtn{
+  text-align: center;
+  padding: 10rem;
+  padding-left:40rem;
+}
+.finalimg{
+  width: 300px;
+  margin-left: 13rem;
+  /* border: 2px solid red; */
+  /* float: center;
+  text-align: center; */
+}
+}
+@media screen and (min-width:800px){
+  .aboutbtn{
+  text-align: center;
+  padding: 10rem;
+  padding-left:40rem;
+}
+.finalimg{
+  width: 300px;
+  margin-left: 33rem;
+  /* border: 2px solid red; */
+  /* float: center;
+  text-align: center; */
+}
+}
+
